@@ -1,18 +1,18 @@
 from . import db
-from . import login_manager
-from flask_login import UserMixin
+# from . import login_manager
+# from flask_login import UserMixin
 from werkzeug.security import generate_password_hash,check_password_hash
 from datetime import datetime
 
-@login_manager.user_loader
+# @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class USer(UserMixin,db.Model):
+class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(255))
-    pitch = db.Relationship('pitch',backref = 'user', lazy = "dynamic")
+    pitch = db.relationship('pitch',backref = 'user', lazy = "dynamic")
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_hash = db.Column(db.String(255))
@@ -31,13 +31,13 @@ class USer(UserMixin,db.Model):
 
 class Pitch(db.Model):
     __tablename__ = 'pitches'
-    id = db.Column(db.Interger, primary_key = True)
-    pitch_id = db.Column(db.Interger)
+    id = db.Column(db.Integer, primary_key = True)
+    pitch_id = db.Column(db.Integer)
     pitch_type = db.Column(db.String)
     pitch_comment = db.Column(db.String)
     posted = db.Column(db.DateTime, default=datetime.utcnow)
-    upvote = db.Column(db.Interger)
-    downvote = db.Column(db.Interger)
+    upvote = db.Column(db.Integer)
+    downvote = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id"))
 
     def save_pitch(self):
