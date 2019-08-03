@@ -8,3 +8,8 @@ class PitchForm(FlaskForm):
     author = StringField('Author', validators=[Required()])
     category = RadioField('Pick Category',choices=[('business', 'business'),('wired', 'wired')],validators=[Required()])
     submit = SubmitField('Submit')
+
+class CommentForm(FlaskForm):
+    title = StringField('Title', validators=[Required()])
+    comment = TextAreaField('Comment', validators=[Required()])
+    submit = SubmitField('Submit')
