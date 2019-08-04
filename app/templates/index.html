@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 {% block style %}
 
 
@@ -9,12 +10,21 @@
 <div class=" container-fluid ">
     <div class="row">
         <div class="col-md-12">
-            <p><a href = " auth/login">Sign In</a></p>
-            <p><a href = " /new">spend your 60 seconds right :)</a><p>
+            <p><a href=" auth/login">Sign In</a></p>
+            <p><a href=" /new">spend your 60 seconds right :)</a>
+                <p>
         </div>
     </div>
     <div class="row">
-        {{macro.displayPitchList(pitches)}}
+        <div class="col-md-6">
+            <h2>Business</h2>
+            {{macro.displayPitchList(business)}}
+        </div>
+        <div class="col-md-6">
+            <h2>Wierd</h2>
+            {{macro.displayPitchList(wierd)}}
+        </div>
+
     </div>
 </div>
 {% endblock %}
