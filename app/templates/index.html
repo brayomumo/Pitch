@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block style %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class=" container-fluid ">
+    <div class="row">
+        <div class="col-md-12">
+            <p><a href = " auth/login">Sign In</a></p>
+            <p><a href = " /new">spend your 60 seconds right :)</a><p>
+        </div>
+    </div>
+    <div class="row">
+        {{macro.displayPitchList(pitches)}}
+    </div>
+</div>
+{% endblock %}
