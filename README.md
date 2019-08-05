@@ -27,11 +27,11 @@ This is a web application that allows various users to submit a short pitch. Use
 
 ## Setup/Installation Requirements
 * internet access
-* $ git clone https://github.com/brayomumo/Pitch.git
-* $ cd Pitch
-* $ python3.6 -m venv virtual (install virtual environment)
-* $ source virtual/bin/activate
-* $ python3.6 -m pip install -r requirements.txt (install all dependencies)
+* $ `git clone https://github.com/brayomumo/Pitch.git`
+* $ `cd Pitch`
+* $ `python3.6 -m venv virtual` (install virtual environment)
+* $ `source virtual/bin/activate`
+* $ `python3.6 -m pip install -r requirements.txt` (install all dependencies)
 * Inside the manage.py module change the config_name parameter from 'production' to 'development' ie app = create_app('production') should be app = create_app('development')
 * $ ./start.sh
 
