@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, abort
 from . import main
-from .forms import PitchForm,CommentForm,Vote
+from .forms import PitchForm,CommentForm
 from ..models import User, Pitch, Comment
 from flask_login import login_required, current_user
 from .. import db, photos
@@ -23,7 +23,7 @@ def business():
     """
     business_pitch = Pitch.query.filter_by(category='business').all()
 
-    return render_template('business.html', business=business_pitch)
+    return render_template('pitch.html', business=business_pitch)
 
 @main.route('/wired')
 def wired():
@@ -32,7 +32,7 @@ def wired():
     """
     wired_pitch = Pitch.query.filter_by(category='wired').all()
 
-    return render_template('wired.html', wired=wired_pitch)
+    return render_template('pitch.html', wired=wired_pitch)
 
 
 @main.route('/new', methods=['GET', 'POST'])
